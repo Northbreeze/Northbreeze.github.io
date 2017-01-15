@@ -20,4 +20,4 @@ Please contact me if you are interested in the similar area, maybe together we c
 
 ### Contact me
 
-[email@domain.com](mailto:nasim.taba2@gmail.com)
+[nasim.taba2@gmail.com](mailto:nasim.taba2@gmail.com)
