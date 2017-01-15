@@ -11,9 +11,12 @@ I am hoping to fine-tune my data analytics skills, and use them to explore psych
 ### More Information
 
 [My linkedin](https://www.linkedin.com)
+
 [My facebook](https://www.facebook.com)
 
-Please contact me if you are interested in the similar area,maybe together we can help humanity even in small scale.
+Please contact me if you are interested in the similar area, maybe together we can help humanity even in small scale.
+
+"It is the job of thinking people not to be on the side of the executions (Albert Camus)"
 
 ### Contact me
 
