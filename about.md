@@ -16,7 +16,7 @@ I am hoping to fine-tune my data analytics skills, and use them to explore psych
 
 Please contact me if you are interested in the similar area, maybe together we can help humanity even in small scale.
 
-"It is the job of thinking people not to be on the side of the executions (Albert Camus)"
+> It is the job of thinking people not to be on the side of the executions (Albert Camus)
 
 ### Contact me
 
