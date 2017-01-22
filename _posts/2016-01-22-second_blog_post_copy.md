@@ -3,6 +3,11 @@ layout: post
 title: Application of K-means Clustering Algorithm in Society!
 ---
 
+              “When we have all data online it will be great for humanity. It is a prerequisite to solving many problems that humankind                     faces.” – Robert Cailliau
+
+
+As I mentioned in my previous posts, I would like to learn how datascience algorithms and methods can be used for social good and improve human's lives; hence, in this post, I discuss clustering method and its application in society.
+
 As part of my M.Sc. in Management Engineering from the University of Waterloo, I wrote a thesis on [“Detecting Weak Signals by Internet-Based Environmental Scanning.”](https://uwspace.uwaterloo.ca/bitstream/handle/10012/6314/Tabatabaei_Nasim.pdf?sequence=1) This was an opportunity to apply data mining, computer tools and human judgement to predict the market potential of a new product called Micro-tile which is displayed below.
 
 <p>
@@ -12,7 +17,7 @@ As part of my M.Sc. in Management Engineering from the University of Waterloo, I
 </p>
 I used both programming and human analysis to retrieve 40,000 HTML pages, analyze the data, and produce information that was relevant for the strategic marketing department of Christie Digital.
 
-To succeed in my thesis, it was essential to cluster pages according to their content. I chose k-means algorithm (with each cluster accounting for no more than 10% of the overall count) and [CLUTO](http://glaros.dtc.umn.edu/gkhome/cluto/cluto/overview) for the clustering function. This enabled me to produce clusters with similar content (matching key words), which were ready for human analysis. I think this method is really useful in text minign and web mining area, that's why in this post I intend to talk about k-means clustering algorithm in R and provide an example.
+To succeed in my thesis, it was essential to cluster pages according to their content. I chose k-means algorithm (with each cluster accounting for no more than 10% of the overall count) and [CLUTO](http://glaros.dtc.umn.edu/gkhome/cluto/cluto/overview) for the clustering function. This enabled me to produce clusters with similar content (matching key words), which were ready for human analysis. I think this method is really useful in text mining and web mining area, that's why in this post I intend to talk about k-means clustering algorithm in R and provide an example.
 
 ### Clustering
 
@@ -38,7 +43,9 @@ To learn more about kmeans clustering, look at this video.
 
 [![K-means clustering Algorithm](http://i3.ytimg.com/vi/vi/mtkWR8sx0NA/maxresdefault.jpg/hqdefault.jpg)](https://www.youtube.com/watch?v=mtkWR8sx0NA)
 
-### kmeans in R
+
+
+### kmeans() function in R
 
 I want to show a quick demo of applying this method in R. R has a function called `k-means` that can be used for k clustering.
 
@@ -93,7 +100,7 @@ str(US_Judge)
 US_Judge_df <- data.matrix (US_Judge)
 ```
 
-I used pairs function to see scatter plots matrices for the data set to get the feeling of how dataset looks like. You can read further [here](http://stat.ethz.ch/R-manual/R-devel/library/graphics/html/pairs.html) as it was my reference.
+I used pairs function to see scatter plots matrices for the data set to get the feeling of how dataset looks like. You can also read further my [reference] (http://stat.ethz.ch/R-manual/R-devel/library/graphics/html/pairs.html) to create these plots and learn how to use pairs function.
 
 ``` r
 panel.hist <- function(x, ...)
