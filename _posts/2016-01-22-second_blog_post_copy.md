@@ -112,7 +112,11 @@ pairs(USJudgeRatings[2:4], panel = panel.smooth,
       diag.panel = panel.hist, cex.labels = 2, font.labels = 2)
 ```
 
-![](2016-01-22-second_blog_post_copy_files/figure-markdown_github/unnamed-chunk-4-1.png)
+<p>
+    <img src="/images/pairs.png" alt>
+    <em> multiple plots </em>
+
+</p>
 
 Now we assume, the number of clusters can be 4. As mentioned above, the number of clusters will be chosen randomly, I use Kmeans() function in R. I put nstart as 30 here, it has been mentioned that nstart parameter can be any number between 20 and 50 which means that R will "try 30 different random starting assignments and then select the one with the lowest within cluster variation". [source](https://datascienceplus.com/k-means-clustering-in-r/)
 
@@ -205,7 +209,12 @@ Now, we are plotting the clusters.
 plot(US_Judge_df , col =(cluster_4$cluster +1) , main="K-Means Result with 4 Clusters", pch=20, cex=2)
 ```
 
-![](2016-01-22-second_blog_post_copy_files/figure-markdown_github/unnamed-chunk-8-1.png)
+
+<p>
+    <img src="/images/cluster.png" alt>
+    <em> K-means cluster </em>
+
+</p>
 
 **Final Note**
 
