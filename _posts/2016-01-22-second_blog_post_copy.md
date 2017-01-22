@@ -114,7 +114,6 @@ pairs(USJudgeRatings[2:4], panel = panel.smooth,
 
 <p>
     <img src="/images/pairs.png" alt>
-    <em> multiple plots </em>
 
 </p>
 
@@ -212,7 +211,6 @@ plot(US_Judge_df , col =(cluster_4$cluster +1) , main="K-Means Result with 4 Clu
 
 <p>
     <img src="/images/cluster.png" alt>
-    <em> K-means cluster </em>
 
 </p>
 
