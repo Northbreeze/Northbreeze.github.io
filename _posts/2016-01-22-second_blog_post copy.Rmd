@@ -1,4 +1,13 @@
 ---
+title: "Application of k-means clustering algorithm"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+---
 layout: post
 title: Application of k-means clustering algorithm!
 ---
@@ -6,20 +15,22 @@ title: Application of k-means clustering algorithm!
 
 As part of my M.Sc. in Management Engineering from the University of Waterloo, I wrote a thesis on [“Detecting Weak Signals by Internet-Based Environmental Scanning.”](https://uwspace.uwaterloo.ca/bitstream/handle/10012/6314/Tabatabaei_Nasim.pdf?sequence=1) This was an opportunity to apply data mining, computer tools and human judgement to predict the market potential of a new product called Micro-tile which is displayed below.
 
-![alt image](/images/micro-tile.png)
+
 *caption*
 
 I used both programming and human analysis to retrieve 40,000 HTML pages, analyze the data, and produce information that was relevant for the strategic marketing department of Christie Digital. 
 
 To succeed in my thesis, I used a novel methodology which enabled me to consolidate data from a large sample of web pages and convert it into practicable information. I retrieved 40,000 HTML pages to extract weak signals and find behavior patterns. It was essential to cluster pages according to their content. I chose to use a combination of Apple script (in the pre-processing phase to convert from HTLM to txt); the k-means algorithm (with each cluster accounting for no more than 10% of the overall count) and [CLUTO](http://glaros.dtc.umn.edu/gkhome/cluto/cluto/overview) for the clustering function. This enabled me to produce clusters with similar content (matching key words), which were ready for human analysis.
 
-In this post, I would specifically want to discuss the k-mean clustering algorithm. 
+In this post, I would specifically want to discuss the K Means clustering algorithm. 
 
 **Document clustering**
 
 - Document clustering is one of the most applicable methods of text mining and used to group large amounts of documents into a number of clusters. Clustering is part of the unsupervised method which means that no training set is required. 
 
 - For large document sets, K-means perform better (Cutting, Pederson, Karger, & Turkey, 1992; Steinbach et al., 2000). The goal of clustering algorithm is to parition documents into different groups in way that document in one group are similar to each other and not similar from other groups.
+
+**K Means Algorithm**
 
 Below are the steps to perform K-means algorithm:
 [source](https://www.codeproject.com/Articles/439890/Text-Documents-Clustering-using-K-Means-Algorithm)
@@ -29,7 +40,51 @@ Below are the steps to perform K-means algorithm:
 2- Assign all points to the closest centroid
 
 3- Recompute the centroid of each cluster
+  
+4- Repeat steps 2 and 3 until the K clusters are reached and when the assignment of the documents to cluster no longer changes.
 
-4- Repeat steps 2 and 3 until the K clusters are reached.
+**kmeans in R**
 
+I want to show a quick demo of applying this method in R. R has a function called `k-means` that can be used for k clustering.  
+
+I'm using UCBAdmissions data in base R. For more information about this dataset please refer to the following link. [UCBAdmissions](https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/UCBAdmissions.html). Aggregate data on applicants to graduate school at Berkeley for the six largest departments in 1973 classified by admission and sex.
+
+In 1973, the UC Berkeley was sued for bias against women who had applied for admission to graduate schools.  n=4526 applicants:
+
+```{r}
+library(tidyverse)
+```
+
+
+```{r}
+# summarize data
+
+
+(Berkley_admission_dataset <- as.data.frame(UCBAdmissions) %>% 
+  group_by(Admit, Gender) %>% 
+  summarise(Freq = sum(Freq)))
+
+```
+
+
+```{r}
+berkley_plot <- ggplot(data=Berkley_admission_dataset, aes(x=Gender, y=Freq, fill=Admit)) +
+  ggtitle("Summary of applicants at Berkley in 1973 classified by age and amdission") +
+  xlab("Gender")
+
+
+berkley_plot + geom_bar(stat = "identity") +
+  ylab("Number of Applicants")
+```
+[source](https://github.com/rudeboybert/MATH241/blob/master/Lec02%20ggplot%20Package/ggplot_2.Rpres)
+
+```{r}
+X <- cbind(Berkley_admission_dataset$Gender, Berkley_admission_dataset$Freq)
+```
+
+
+```{r}
+c1 <- kmeans(X,3)
+c1
+```
 
