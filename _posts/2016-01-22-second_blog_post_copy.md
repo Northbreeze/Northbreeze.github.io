@@ -3,7 +3,8 @@ layout: post
 title: Application of K-means Clustering Algorithm in Society!
 ---
 
-              “When we have all data online it will be great for humanity. It is a prerequisite to solving many problems that humankind                     faces.” – Robert Cailliau
+> When we have all data online it will be great for humanity. It is a prerequisite to solving many problems that humankind                     faces.
+> - Robert Cailliau
 
 
 As I mentioned in my previous posts, I would like to learn how datascience algorithms and methods can be used for social good and improve human's lives; hence, in this post, I discuss clustering method and its application in society.
