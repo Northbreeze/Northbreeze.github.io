@@ -40,10 +40,8 @@ Below are the steps to perform K-means algorithm:
 
 6- Repeat steps 3 and 4 until the K clusters are reached and when the assignment of the documents to cluster no longer changes.
 
-To learn more about kmeans clustering, look at this video.
 
-[![K-means clustering Algorithm](http://i3.ytimg.com/vi/vi/mtkWR8sx0NA/maxresdefault.jpg/hqdefault.jpg)](https://www.youtube.com/watch?v=mtkWR8sx0NA)
-
+To learn more about k-means [click](https://www.youtube.com/watch?v=mtkWR8sx0NA) on the video.
 
 
 ### kmeans() function in R
