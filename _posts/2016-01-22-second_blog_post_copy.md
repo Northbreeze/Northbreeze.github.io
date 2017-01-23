@@ -1,54 +1,56 @@
 ---
 layout: post
-title: Application of K-means Clustering Algorithm in Society!
+title: K-means Clustering Algorithm for social good!
 ---
 
 > When we have all data online it will be great for humanity. It is a prerequisite to solving many problems that humankind                     faces.
 > - Robert Cailliau
 
 
-As I mentioned in my previous posts, I would like to learn how datascience algorithms and methods can be used for social good and improve human's lives; hence, in this post, I discuss clustering method and its application in society.
+As I mentioned in my previous posts, I would like to learn how data science algorithms and methods can be used for social good and improve human's lives; hence, in this post, I discuss clustering method and its application in society.
 
-As part of my M.Sc. in Management Engineering from the University of Waterloo, I wrote a thesis on [“Detecting Weak Signals by Internet-Based Environmental Scanning.”](https://uwspace.uwaterloo.ca/bitstream/handle/10012/6314/Tabatabaei_Nasim.pdf?sequence=1) This was an opportunity to apply data mining, computer tools and human judgement to predict the market potential of a new product called Micro-tile which is displayed below.
+As part of my M.Sc. in Management Engineering from the University of Waterloo, I wrote a thesis on [“Detecting Weak Signals by Internet-Based Environmental Scanning.”](https://uwspace.uwaterloo.ca/bitstream/handle/10012/6314/Tabatabaei_Nasim.pdf?sequence=1) This was an opportunity to apply data mining, computer tools and human judgement to predict the market potential of a new product called Micro-tile as displayed below.
 
 <p>
     <img src="/images/micro-tile.png" alt>
     <em> source:https://www.christiedigital.com/en-us/microtiles </em>
 
 </p>
-I used both programming and human analysis to retrieve 40,000 HTML pages, analyze the data, and produce information that was relevant for the strategic marketing department of Christie Digital.
+I used both programming and human analysis to retrieve 40,000 HTML pages, analyze the data, and produce information that was relevant for the strategic marketing department of [Christie Digital](https://www.christiedigital.com/en-us).
 
-To succeed in my thesis, it was essential to cluster pages according to their content. I chose k-means algorithm (with each cluster accounting for no more than 10% of the overall count) and [CLUTO](http://glaros.dtc.umn.edu/gkhome/cluto/cluto/overview) for the clustering function. This enabled me to produce clusters with similar content (matching key words), which were ready for human analysis. I think this method is really useful in text mining and web mining area, that's why in this post I intend to talk about k-means clustering algorithm in R and provide an example.
+To succeed in my thesis, it was essential to cluster pages according to their content. I chose k-means algorithm (with each cluster accounting for no more than 10% of the overall count) and [CLUTO](http://glaros.dtc.umn.edu/gkhome/cluto/cluto/overview) for the clustering function. This enabled me to produce clusters with similar content (matching key words), which were ready for human analysis. I think this method is really useful in text mining and web mining area, that's why in this post I intend to talk about k-means clustering.
 
 ### Clustering
 
-Clustering algorithm is one of the most influential and fastest method in machine learning. It is used to group large amounts of data into a number of clusters. Clustering is part of the unsupervised method which means that no training set is required. In this post, I would specifically want to discuss the K Means clustering algorithm and provide an example to undrestand how it works in R.
+Clustering algorithm is one of the most influential and fastest method in machine learning. It is used to group large amounts of data into a number of clusters. Clustering is part of the unsupervised method which means that no training set is required. In this post, I would specifically want to discuss the K Means clustering algorithm and provide an example to undrestand how it works in R .
 
 ### K Means Algorithm
 
 Below are the steps to perform K-means algorithm:
 
-1- Select K as the initial number of clusters
+1- Select K as the initial number of clusters.
 
-2- Data set should be separated in to k clusters randomly
+2- Data set should be separated into k clusters randomly.
 
-3- Compute distances between each of cluster means and all other points
+3- Compute distances between each of cluster means and all other points.
 
-4- Assign all points to the closest centroid and move data points if they are not close to their own clusters
+4- Assign all points to the closest centroid and move data points if they are not close to their own clusters.
 
-5- Recompute the centroid of each cluster
+5- Recompute the centroid of each cluster.
 
-6- Repeat steps 3 and 4 until the K clusters are reached and when the assignment of the documents to cluster no longer changes.
-
-
-To learn more about k-means [click](https://www.youtube.com/watch?v=mtkWR8sx0NA) on the video.
+6- Repeat steps 3 and 4 until the K clusters are reached and when the assignment of the data points to cluster no longer changes.
 
 
-### kmeans() function in R
+To learn more about k-means look at this [video](https://www.youtube.com/watch?v=mtkWR8sx0NA).
+
+
+### Kmeans() function in R
 
 I want to show a quick demo of applying this method in R. R has a function called `k-means` that can be used for k clustering.
 
 I would like to use Lawyers' ratings of state judges in the US Superior Court to analyze kmeans clustering. To find out more about the variables in this dataset, take a look at this [link](Lawyers'%20ratings%20of%20state%20judges%20in%20the%20US%20Superior%20Court).
+
+First, we should load all required libraries.
 
 ``` r
 # load necessary libraries
@@ -71,6 +73,8 @@ library(tidyverse)
 # reading csv file
 USJudgeRatings <- read.csv("USJudgeRatings.csv")
 ```
+
+For kmeans() clustering to work in R, we need to ensure that all NAs are removed in the dataset. 
 
 ``` r
 # removing N/A 
@@ -99,7 +103,7 @@ str(US_Judge)
 US_Judge_df <- data.matrix (US_Judge)
 ```
 
-I used pairs function to see scatter plots matrices for the data set to get the feeling of how dataset looks like. You can also read further my [reference] (http://stat.ethz.ch/R-manual/R-devel/library/graphics/html/pairs.html) to create these plots and learn how to use pairs function.
+I used pairs function to see scatter plots matrices for the data set to get the feeling of how dataset looks like. You can also read further by looking at the [reference](http://stat.ethz.ch/R-manual/R-devel/library/graphics/html/pairs.html) that I used to create these plots and learn how to use pairs function.
 
 ``` r
 panel.hist <- function(x, ...)
@@ -188,7 +192,7 @@ str(cluster_4)
 
 **Evaludate clusters**
 
-betweenss and withinss are the measures for sum of squares. A good clustering algorithm, should have lower value of withinss and higher value of betweenss. Since we randomly chose k as 4 in the initial clustering algorithm, we don't know if k is a good value or not. We can prepare a chart which shows the number of clusters vs whitin groups sum of squares. The minimum value of k is the best value for clustering. You can refer to this [link](https://rstudio-pubs-static.s3.amazonaws.com/33876_1d7794d9a86647ca90c4f182df93f0e8.html) to determine the proper way to find the optimum value of k by having a chart.
+betweenss and withinss are the measures for sum of squares. A good clustering algorithm, should have lower value of withinss and higher value of betweenss. Since we randomly chose k as 4 in the initial clustering algorithm, we don't know if k is a good value or not. We can prepare a chart which shows the number of clusters vs whitin groups sum of squares. The minimum value of k is the best value for clustering. You can refer to this [website](https://rstudio-pubs-static.s3.amazonaws.com/33876_1d7794d9a86647ca90c4f182df93f0e8.html) to learn the proper way to determine the optimum value of k.
 
 ``` r
 #cluster centers
@@ -220,6 +224,6 @@ plot(US_Judge_df , col =(cluster_4$cluster +1) , main="K-Means Result with 4 Clu
 
 </p>
 
-**Final Note**
+**What's next?**
 
-Please note that, the intention of this post was to get familiar with R codes for getting kmeans cluster and understand the algorithm conceptually. I'll write another post to analyze clusters for judge data set.
+The intention of this post was to get familiar with kmeans clustering algorithm concept and its application in R by providing an example. I didn't analyze the clusters in detail as I didn't want to make you bored in this post. I'll write another post to analyze clusters for judge data set.
