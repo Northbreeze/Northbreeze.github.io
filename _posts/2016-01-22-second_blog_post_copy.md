@@ -103,7 +103,7 @@ str(US_Judge)
 US_Judge_df <- data.matrix (US_Judge)
 ```
 
-I used pairs function to see scatter plots matrices for the data set to get the feeling of how dataset looks like. You can also read further by looking at the [reference](http://stat.ethz.ch/R-manual/R-devel/library/graphics/html/pairs.html) that I used to create these plots and learn how to use pairs function.
+I used pairs function to display the scatter plots for the first three variables in the dataset. To learn more about pairs function, you can read further by looking at the [reference](http://stat.ethz.ch/R-manual/R-devel/library/graphics/html/pairs.html) I used to create these plots.
 
 ``` r
 panel.hist <- function(x, ...)
