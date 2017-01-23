@@ -1,6 +1,6 @@
 ---
 layout: post
-title: K-means Clustering Algorithm for social good!
+title: K-means Clustering Algorithm for Social Good!
 ---
 
 > When we have all data online it will be great for humanity. It is a prerequisite to solving many problems that humankind                     faces.
